@@ -315,6 +315,17 @@ func (i *IntervalSet) toTokenString(literalNames []string, symbolicNames []strin
 	return names[0]
 }
 
+func (i *IntervalSet) ToList() []int {
+	list := []int{}
+	for _, v := range i.intervals {
+		for j := v.Start; j < v.Stop; j++ {
+			list = append(list, j)
+		}
+	}
+
+	return list
+}
+
 func (i *IntervalSet) elementName(literalNames []string, symbolicNames []string, a int) string {
 	if a == TokenEOF {
 		return "<EOF>"

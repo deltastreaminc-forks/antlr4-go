@@ -687,6 +687,7 @@ func (b *BailErrorStrategy) Recover(recognizer Parser, e RecognitionException) {
 		}
 	}
 	recognizer.SetError(NewParseCancellationException()) // TODO: we don't emit e properly
+	recognizer.SetError(e)
 }
 
 // RecoverInline makes sure we don't attempt to recover inline if the parser
